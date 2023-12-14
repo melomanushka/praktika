@@ -29,5 +29,10 @@ namespace praktika.Views
         {
             NavigationService.Navigate(new Registration_Page());
         }
+        private void btn(object sender, RoutedEventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+        }
     }
 }

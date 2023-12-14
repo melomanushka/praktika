@@ -10,42 +10,40 @@
       Background="Transparent">
     <Border BorderThickness="1,1,1,1" CornerRadius="30,30,30,30"  Width="340" Height="300" Grid.Row="1">
         <Border.Background>
-            <SolidColorBrush Color="Black" Opacity="0.6"/>
+            <SolidColorBrush Color="#2D1F1E" Opacity="0.8"/>
         </Border.Background>
         
         <StackPanel Orientation="Vertical" Margin="8">
+            
             <StackPanel Orientation="Horizontal">
-                <Image Source="D:\визуалка проекты\praktika\praktika\image\8.png" Width="50" Height="50" Opacity="1" Margin="15,0"></Image>
-                <TextBlock Text="Hikes" Foreground="LightGray" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="50,0" FontFamily="Viner Hand ITC"></TextBlock>
-                <Button x:Name="btntheme" Width="50">
-                    <Button.Background>
-                        <ImageBrush ImageSource="\image\sun.png"/>
-                    </Button.Background>
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </Button.Style>
-                </Button>
+                <Image Source="D:\визуалка проекты\praktika\praktika\image\8.png" 
+                       Width="50" Height="50" Opacity="1" Margin="10,0,0,0"/>
+
+                <TextBlock Text="WELCOME" Foreground="#f8f4eb" FontSize="30" 
+                           HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                           Margin="25,0" FontFamily="Comic Sans MS"/>
+                
+                <Image Source="D:\визуалка проекты\praktika\praktika\image\8.png" 
+                       Width="50" Height="50" Opacity="1" Margin="0,0,10,0"/>
             </StackPanel>
-            <TextBlock Text="Login" Foreground="LightGray" Margin="20,10,0,0" HorizontalAlignment="Left" FontSize="13" FontFamily="Comic Sans MS"></TextBlock>
-            <TextBox Margin="8" Height="20" Width="300" Opacity="0.8" Background="Transparent" Foreground="LightGray">
+
+            <TextBlock Text="Login" Foreground="#f8f4eb" Margin="20,10,0,0" 
+                       HorizontalAlignment="Left" FontSize="13" FontFamily="Comic Sans MS"></TextBlock>
+            <TextBox Margin="8" Height="20" Width="300" Background="Transparent" 
+                     Foreground="#f8f4eb">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <TextBlock Text="Password" Foreground="LightGray" Margin="20,0,0,0" FontSize="13" HorizontalAlignment="Left" FontFamily="Comic Sans MS"></TextBlock>
-            <TextBox x:Name="tx_password" Margin="8" Height="20" Width="300" Opacity="0.8" Background="Transparent" Foreground="LightGray">
+
+            <TextBlock Text="Password" Foreground="#f8f4eb" Margin="20,0,0,0" 
+                       FontSize="13" HorizontalAlignment="Left" 
+                       FontFamily="Comic Sans MS"/>
+            
+            <TextBox x:Name="tx_password" Margin="8" Height="20" Width="300"  
+                     Background="Transparent" Foreground="#f8f4eb">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -53,7 +51,10 @@
                 </TextBox.Resources>
             </TextBox>
             <!--PASSWORD-->
-            <Button x:Name="btnenter" Content="Enter" Width="170" Height="26" Margin="10" Opacity="0.6" Background="Transparent" Foreground="WhiteSmoke" FontSize="14">
+            
+            <Button Content="Enter" Width="170" Height="26" Margin="10"
+                    Background="Transparent"  Foreground="#f8f4eb" FontSize="18"
+                    FontFamily="Comic Sans MS" Click="btn">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="8"/>
@@ -74,9 +75,11 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Label Content="Dont Have an Account?" Foreground="LightGray" HorizontalAlignment="Center"/>
-            <Button x:Name="nextPageButton" Width="100" Foreground="LightGray" 
-                    Content="Create Account" Background="Transparent" BorderBrush="Transparent" 
+
+            <Label Content="Dont Have an Account?" Foreground="#f8f4eb" HorizontalAlignment="Center"/>
+
+            <Button x:Name="nextPageButton" Width="100" Foreground="#f8f4eb" 
+                    Content="Create Account" Background="Transparent" 
                     Click="nextPageButton_Click">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
@@ -92,6 +95,7 @@
                     </Style>
                 </Button.Style>
             </Button>
+            
         </StackPanel>
     </Border>
 </Page>

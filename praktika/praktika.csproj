@@ -79,7 +79,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\BlackTheme.xaml">
+    <Page Include="Theme\BlackTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\WhiteButtonStart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\WhiteThemeButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,7 +107,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WhiteTheme.xaml">
+    <Page Include="Theme\WhiteTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,6 +176,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\black6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\close1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\minus1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

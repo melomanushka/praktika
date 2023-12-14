@@ -31,20 +31,5 @@ namespace praktika.Views
         {
             NavigationService.Navigate(new Login_Page());
         }
-
-        private void Theme_Change_Click(object sender, RoutedEventArgs e)
-        {
-            if (!isPressed)
-            {
-                themeButton.Background = new ImageBrush(new BitmapImage(new Uri("D:\\визуалка проекты\\praktika\\praktika\\image\\moon.png")));
-                isPressed= true;
-            }
-
-            else if (isPressed)
-            {
-                themeButton.Background = new ImageBrush(new BitmapImage(new Uri("D:\\визуалка проекты\\praktika\\praktika\\image\\sun.png")));
-                isPressed = false;
-            }
-        }
     }
 }
