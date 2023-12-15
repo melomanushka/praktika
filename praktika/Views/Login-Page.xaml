@@ -8,6 +8,7 @@
       Title="Login_Page"
       d:Height="450" d:Width="800"
       Background="Transparent">
+    
     <Border BorderThickness="1,1,1,1" CornerRadius="30,30,30,30"  Width="340" Height="300" Grid.Row="1">
         <Border.Background>
             <SolidColorBrush Color="#2D1F1E" Opacity="0.8"/>
@@ -51,16 +52,10 @@
                 </TextBox.Resources>
             </TextBox>
             <!--PASSWORD-->
-            
+
             <Button Content="Enter" Width="170" Height="26" Margin="10"
                     Background="Transparent"  Foreground="#f8f4eb" FontSize="18"
                     FontFamily="Comic Sans MS" Click="btn">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="8"/>
-                        <Setter Property="BorderBrush" Value="Gray"/>
-                    </Style>
-                </Button.Resources>
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Template">

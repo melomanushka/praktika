@@ -28,5 +28,9 @@ namespace praktika.Views
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+        private void btnclose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

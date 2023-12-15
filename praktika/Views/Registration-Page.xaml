@@ -60,7 +60,7 @@
                 </TextBox.Resources>
             </TextBox>
             <!--PASSWORD-->
-            <Button x:Name="btnenter" Content="Enter" Width="200" Height="26" 
+            <Button Content="Enter" Width="200" Height="26" 
                     Margin="8,0" Background="Transparent" FontFamily="Comic Sans MS"
                     Foreground="#f8f4eb" FontSize="18">
                 <Button.Style>
