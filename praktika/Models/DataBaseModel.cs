@@ -9,8 +9,31 @@ namespace praktika.Models
 {
     internal class DataBaseModel
     {
-        private readonly string Connect = "Data Source=_MELOMANUSHKA_;Initial Catalog=Praktika;Integrated Security=True";
+        public static readonly string Connect = "Data Source=_MELOMANUSHKA_;Initial Catalog=Praktika;Integrated Security=True";
+        public DataBaseModel(string connect)
+        {
+            connect = Connect;
+        }
 
+        public bool IsValidLogin(string login, string password)
+        {
+            bool validUser;
+
+            using (var connection = new SqlConnection(Connect))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+
+                command.CommandText = "SELECT * FROM [User] WHERE Login=@Login AND Password=@Password";
+                command.Parameters.AddWithValue("@Login", login);
+                command.Parameters.AddWithValue("@Password", password);
+
+                validUser = command.ExecuteScalar() != null;
+            }
+
+            return validUser;
+        }
         public bool LoginExists(string login)
         {
             bool exists;

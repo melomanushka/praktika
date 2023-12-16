@@ -1,4 +1,5 @@
-﻿using System;
+﻿using praktika.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,14 @@ namespace praktika.Views
     /// </summary>
     public partial class Entrance_Window : Window
     {
+        public static Entrance_Window entrance_Window;
+        private readonly LoginRegistrViewModel loginRegistrViewModel;
         public Entrance_Window()
         {
             InitializeComponent();
             mainFrame.Content = new Login_Page();
+            loginRegistrViewModel = new LoginRegistrViewModel();
+            DataContext = loginRegistrViewModel;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

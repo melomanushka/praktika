@@ -5,10 +5,64 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:praktika.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="625" d:DesignWidth="900"
       Title="Settings">
 
-    <Grid>
-        
-    </Grid>
+    <StackPanel Orientation="Horizontal">
+        <StackPanel Width="800">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <Label Content="Стиль шрифта" Foreground="#f8f4eb"
+                       FontSize="20" Margin="10,0,0,0"/>
+                <ComboBox Grid.Column="1" Width="390" Height="40" 
+                          Background="Transparent" Foreground="#f8f4eb"/>
+                
+                <Label Grid.Row="1" Content="Размер шрифта" Foreground="#f8f4eb"
+                       FontSize="20" Margin="10,0,0,0"/>
+                <ComboBox Grid.Column="1" Grid.Row="1" Width="390" Height="40" 
+                          Background="Transparent" Foreground="#f8f4eb"/>
+
+                <Label Grid.Row="2" Content="Видимость иконок" Foreground="#f8f4eb"
+                       FontSize="20" Margin="10,0,0,0"/>
+                <CheckBox Grid.Column="1" Grid.Row="2" 
+                          IsChecked="True" Content="Yes"
+                          Foreground="#f8f4eb" VerticalAlignment="Center"
+                          FontSize="20" Background="#FFC68C8C"/>
+
+            </Grid>
+        </StackPanel>
+        <StackPanel Width="100">
+            <!--Click="Theme_Change_Click"-->
+            <Button x:Name="themeButton" Width="63" Height="60" 
+                    
+                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Margin="0,5,5,0">
+                <Button.Background>
+                    <ImageBrush ImageSource="\image\sun.png"/>
+                </Button.Background>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+ 
+    </StackPanel>
 </Page>

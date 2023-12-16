@@ -1,9 +1,11 @@
-﻿using System;
+﻿using praktika.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace praktika.ViewModels
 {
@@ -26,7 +28,7 @@ namespace praktika.ViewModels
             set 
             { 
                 id = value;
-                
+                OnPropertyChanged(nameof(Id));
             } 
         }
 
@@ -78,16 +80,66 @@ namespace praktika.ViewModels
             }
         }
 
+        private UserModel selectedUser;
+        public UserModel SelectedUser
+        {
+            get => selectedUser;
+            set
+            {
+                if (selectedUser != value)
+                {
+                    selectedUser = value;
+                    OnPropertyChanged(nameof(SelectedUser));
+                }
+            }
+        }
+
+
+        private UserModel CurrentUser;
+        public int CurrentAccessLevel
+        {
+            get => CurrentUser.AccessLevel;
+        }
+        private void LoadCurrentUser()
+        {
+            LoginRegistrViewModel loginRegistrViewModel = LoginRegistrViewModel.loginRegistrViewModel;
+            CurrentUser = loginRegistrViewModel.CurrentUser;
+        }
+
         private int accessLevel;
         public int AccessLevel
         {
-            get => accessLevel; 
-            set 
-            { 
-                accessLevel = value; 
-                OnPropertyChanged(nameof(AccessLevel));
+            get => accessLevel;
+            set
+            {
+                if (InputValidCheckAccessLevel(value))
+                {
+                    accessLevel = value;
+                    OnPropertyChanged(nameof(AccessLevel));
+                }
+                else
+                {
+                    accessLevel = 2;
+                }
             }
-
         }
+        private bool InputValidCheckAccessLevel(int accessLevel)
+        {
+            return accessLevel == 1 || accessLevel == 2;
+        }
+
+
+        private Visibility  levelVisibility = Visibility.Hidden;
+        public Visibility LevelVisibility
+        {
+            get => levelVisibility;
+            set
+            {
+                levelVisibility = value;
+                OnPropertyChanged(nameof(LevelVisibility));
+            }
+        }
+    
+        
     }
 }

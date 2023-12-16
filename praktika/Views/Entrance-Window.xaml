@@ -12,11 +12,8 @@
         Height="410" Width="610"
         MouseDown="Window_MouseDown"
         WindowStartupLocation="CenterScreen">
-    
-    <Border CornerRadius="20">
-        <Border.Background>
-            <ImageBrush ImageSource="/image/white7.png"/>
-        </Border.Background>
+
+    <Border CornerRadius="20" Style="{DynamicResource BorderStyle}">
         <Grid>
 
             <Grid.RowDefinitions>
