@@ -22,6 +22,9 @@
                 <RowDefinition Height="75"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <Frame Grid.Row="1" Grid.Column="1" x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
+
             <StackPanel Orientation="Horizontal">
                 <Image Source="D:\визуалка проекты\praktika\praktika\image\8.png" 
                        Width="50" Height="50" Opacity="1" Margin="10,0,0,0"/>
@@ -35,7 +38,7 @@
             <StackPanel Grid.Row="1">
 
                 <RadioButton Content="Home" Height="50" FontSize="20" FontFamily="Bahnschrift Light"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}" IsChecked="True"/>
 
                 <RadioButton Content="User list " Height="50" FontSize="20" FontFamily="Bahnschrift Light"
                              Style="{StaticResource MenuButtonTheme}"/>

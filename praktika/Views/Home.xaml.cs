@@ -22,6 +22,7 @@ namespace praktika.Views
         public Home()
         {
             InitializeComponent();
+            mainFrame.Content = new HomePage();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
