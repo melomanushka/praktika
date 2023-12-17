@@ -17,14 +17,14 @@
         <StackPanel Orientation="Vertical" Margin="8">
             
             <StackPanel Orientation="Horizontal">
-                <Image Source="D:\визуалка проекты\praktika\praktika\image\8.png" 
+                <Image Source="/Resources/8.png" 
                        Width="50" Height="50" Opacity="1" Margin="10,0,0,0"/>
 
                 <TextBlock Text="WELCOME" Foreground="#f8f4eb" FontSize="30" 
                            HorizontalAlignment="Center" VerticalAlignment="Bottom" 
                            Margin="25,0" FontFamily="Comic Sans MS"/>
-                
-                <Image Source="D:\визуалка проекты\praktika\praktika\image\8.png" 
+
+                <Image Source="/Resources/8.png" 
                        Width="50" Height="50" Opacity="1" Margin="0,0,10,0"/>
             </StackPanel>
 

@@ -10,10 +10,7 @@ namespace praktika.Models
     internal class DataBaseModel
     {
         public static readonly string Connect = "Data Source=_MELOMANUSHKA_;Initial Catalog=Praktika;Integrated Security=True";
-        public DataBaseModel(string connect)
-        {
-            connect = Connect;
-        }
+        public DataBaseModel(){ }
 
         public bool IsValidLogin(string login, string password)
         {

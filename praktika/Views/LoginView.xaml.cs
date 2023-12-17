@@ -16,20 +16,19 @@ using System.Windows.Shapes;
 namespace praktika.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Entrance_Window.xaml
+    /// Логика взаимодействия для LoginView.xaml
     /// </summary>
-    public partial class Entrance_Window : Window
+    public partial class LoginView : Window
     {
-        public static Entrance_Window entrance_Window;
-        private readonly LoginRegistrViewModel loginRegistrViewModel;
-        public Entrance_Window()
+        public static LoginView loginView;
+        private readonly LoginViewModel loginViewModel;
+        public LoginView()
         {
             InitializeComponent();
             mainFrame.Content = new Login_Page();
-            loginRegistrViewModel = new LoginRegistrViewModel();
-            DataContext = loginRegistrViewModel;
+            loginViewModel = new LoginViewModel();
+            DataContext = loginViewModel;
         }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

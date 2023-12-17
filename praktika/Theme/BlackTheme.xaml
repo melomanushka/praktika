@@ -4,7 +4,7 @@
     <Style x:Key="BorderStyle" TargetType="{x:Type Border}">
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="/image/black6.png"/>
+                <ImageBrush ImageSource="/Resources/black6.png"/>
             </Setter.Value>
         </Setter>
     </Style>

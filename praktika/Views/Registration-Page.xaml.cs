@@ -25,8 +25,6 @@ namespace praktika.Views
             InitializeComponent();
         }
 
-        bool isPressed = false;
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Login_Page());

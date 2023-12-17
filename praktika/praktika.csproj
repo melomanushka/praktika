@@ -35,8 +35,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,22 +70,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\DataBaseModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Model\DataBaseModel.cs" />
+    <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\UserModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\LoginRegistrViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\RellayCommand.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
-    <Compile Include="Views\Entrance-Window.xaml.cs">
-      <DependentUpon>Entrance-Window.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login-Page.xaml.cs">
       <DependentUpon>Login-Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Registration-Page.xaml.cs">
       <DependentUpon>Registration-Page.xaml</DependentUpon>
@@ -78,9 +96,17 @@
     <Compile Include="Views\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserListPage.xaml.cs">
-      <DependentUpon>UserListPage.xaml</DependentUpon>
+    <Compile Include="Views\UserList.xaml.cs">
+      <DependentUpon>UserList.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -97,15 +123,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Entrance-Window.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Home.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,7 +143,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserListPage.xaml">
+    <Page Include="Views\UserList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,6 +166,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,46 +176,32 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\8.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="image\white.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="image\close.png" />
+    <Resource Include="Resources\8.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="image\minus.png" />
+    <Resource Include="Resources\sun.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\sun.png" />
+    <Resource Include="Resources\white2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\white2.png" />
+    <Resource Include="Resources\black3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\black4.jpg" />
-    <Resource Include="image\black3.jpg" />
+    <Resource Include="Resources\white7.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\black5.jpg" />
-    <Resource Include="image\white6.jpg" />
+    <Resource Include="Resources\moon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\white7.png" />
+    <Resource Include="Resources\black6.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\moon.png" />
+    <Resource Include="Resources\close1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\black6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="image\close1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="image\minus1.png" />
+    <Resource Include="Resources\minus1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

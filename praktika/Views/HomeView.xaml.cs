@@ -1,4 +1,5 @@
-﻿using System;
+﻿using praktika.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,23 +17,23 @@ using System.Windows.Shapes;
 namespace praktika.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Login_Page.xaml
+    /// Логика взаимодействия для HomeView.xaml
     /// </summary>
-    public partial class Login_Page : Page
+    public partial class HomeView : Window
     {
-        public Login_Page()
+        public HomeView()
         {
             InitializeComponent();
+            DataContext = new HomeViewModel();  
         }
-
-        private void nextPageButton_Click(object sender, RoutedEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new Registration_Page());
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
         }
-        private void btn(object sender, RoutedEventArgs e)
+        private void btnclose_Click(object sender, RoutedEventArgs e)
         {
-            HomeView home = new HomeView();
-            home.Show();
+            Application.Current.Shutdown();
         }
     }
 }
