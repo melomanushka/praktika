@@ -103,5 +103,37 @@ namespace praktika.Models
                 command.ExecuteNonQuery();
             }
         }
+        public UserModel GetUserByLogin(string login)
+        {
+            UserModel user = null;
+
+            using (var connection = new SqlConnection(Connect))
+            using (var command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+
+                command.CommandText = "SELECT * FROM [User] WHERE Login=@Login";
+                command.Parameters.AddWithValue("@Login", login);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        user = new UserModel
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            FirstName = reader["FirstName"].ToString(),
+                            LastName = reader["LastName"].ToString(),
+                            Password = reader["Password"].ToString(),
+                            Login = reader["Login"].ToString(),
+                            AccessLevel = Convert.ToInt32(reader["AccessLevel"])
+                        };
+                    }
+                }
+            }
+
+            return user;
+        }
     }
 }

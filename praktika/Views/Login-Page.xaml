@@ -27,11 +27,12 @@
                 <Image Source="/Resources/8.png" 
                        Width="50" Height="50" Opacity="1" Margin="0,0,10,0"/>
             </StackPanel>
-
+            
+            <!--LOGIN-->
             <TextBlock Text="Login" Foreground="#f8f4eb" Margin="20,10,0,0" 
                        HorizontalAlignment="Left" FontSize="13" FontFamily="Comic Sans MS"></TextBlock>
             <TextBox Margin="8" Height="20" Width="300" Background="Transparent" 
-                     Foreground="#f8f4eb" Text="{Binding Login, Mode=OneWayToSource}">
+                     Foreground="#f8f4eb" Text="{Binding loginmodel.Login, Mode=OneWayToSource}">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -42,22 +43,24 @@
             <TextBlock Text="Password" Foreground="#f8f4eb" Margin="20,0,0,0" 
                        FontSize="13" HorizontalAlignment="Left" 
                        FontFamily="Comic Sans MS"/>
-            
-            <TextBox x:Name="tx_password" Margin="8" Height="20" Width="300"  
-                     Background="Transparent" Foreground="#f8f4eb">
+            <!--PASSWORD-->
+            <TextBox Margin="8" Height="20" Width="300"  
+                     Background="Transparent" Foreground="#f8f4eb"
+                     x:Name="txtPassword" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" >
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <!--PASSWORD-->
+            
+            
+            <TextBlock Text="{Binding Error}" Margin="5,0" FontSize="15"
+                        Foreground="DarkRed"/>
 
-            
-            
-            <Button Content="Enter" Width="170" Height="26" Margin="10"
+            <Button Content="Enter" Width="170" Height="26" Margin="10,0,0,0"
                     Background="Transparent"  Foreground="#f8f4eb" FontSize="18"
-                    FontFamily="Comic Sans MS" Click="btn">
+                    FontFamily="Comic Sans MS" Command="{Binding LoginCommand}" Cursor="Hand">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Template">
@@ -69,6 +72,20 @@
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <TranslateTransform />
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Y" To="-5" Duration="0:0:0.1" AutoReverse="True" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
                     </Style>
                 </Button.Style>
             </Button>
@@ -89,10 +106,23 @@
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <TranslateTransform />
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Y" To="-5" Duration="0:0:0.1" AutoReverse="True" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
                     </Style>
                 </Button.Style>
             </Button>
-            
         </StackPanel>
     </Border>
 </Page>

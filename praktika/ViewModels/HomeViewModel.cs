@@ -21,7 +21,7 @@ namespace praktika.ViewModels
         }
         #endregion
 
-        private bool isPage1Selected;
+        private bool isPage1Selected = true;
         private bool isPage2Selected;
         private bool isPage3Selected;
         private object currentPage;
@@ -81,7 +81,7 @@ namespace praktika.ViewModels
             IsPage1Selected = true;
         }
 
-        private void ChangePage()
+        private void ChangePage(object obj)
         {
             throw new NotImplementedException();
         }

@@ -26,7 +26,91 @@ namespace praktika.ViewModels
         public static LoginModel loginmodel = new LoginModel();
         public static LoginView loginView = new LoginView();
         public static DataBaseModel dataBaseModel = new DataBaseModel();
-        string connect = DataBaseModel.Connect;
+        //string connect = DataBaseModel.Connect;
+
+        public UserModel currentUser;
+        public UserModel CurrentUser
+        {
+            get => currentUser;
+            private set
+            {
+                currentUser = value;
+                OnPropertyChanged(nameof(CurrentUser));
+            }
+        }
+
+
+        private string _login;
+        public string Login
+        {
+            get { return _login; }
+            set
+            {
+                _login = value;
+                OnPropertyChanged(nameof(Login));
+            }
+        }
+
+
+        private string _password;
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
+
+        private string _firstname;
+        public string Firstname
+        {
+            get { return _firstname; }
+            set
+            {
+                _firstname = value;
+                OnPropertyChanged(nameof(Firstname));
+            }
+        }
+
+
+        private string _lastname;
+        public string Lastname
+        {
+            get { return _lastname; }
+            set
+            {
+                _lastname = value;
+                OnPropertyChanged(nameof(Lastname));
+            }
+        }
+
+
+        private string _errorMessage;
+        public string Error
+        {
+            get { return _errorMessage; }
+            set
+            {
+                _errorMessage = value;
+                OnPropertyChanged(nameof(Error));
+            }
+        }
+        private bool _isViewVisible = true;
+        public bool IsViewVisible
+        {
+            get
+            {
+                return _isViewVisible;
+            }
+            set
+            {
+                _isViewVisible = value;
+                OnPropertyChanged(nameof(IsViewVisible));
+            }
+        }
 
         public LoginViewModel()
         {
@@ -34,36 +118,32 @@ namespace praktika.ViewModels
             LoginCommand = new RelayCommand(SignIn, CanSignIn);
         }
 
-        private bool CanSignIn()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SignIn()
-        {
-            throw new NotImplementedException();
-        }
-
         public ICommand LoginCommand { get; private set; }
 
         private void SignIn(object parameter)
         {
-            if (dataBaseModel.IsValidLogin(loginmodel.Login, loginmodel.Password))
+            if (dataBaseModel.IsValidLogin(Login, Password))
             {
-                loginmodel.ErrorMessage = "Неправильный логин или пароль";
+                CurrentUser = dataBaseModel.GetUserByLogin(Login);
+                HomeView homeView = new HomeView();
+                homeView.Show();
+                loginView.Close();
             }
             else
             {
-                //CurrentUser = dbLogic.GetUserByLogin(loginmodel.Login);
-                //PersonalAccountView window = new PersonalAccountView();
-                //window.Show();
-                loginView.Close();
+                Error = "Неправильный логин или пароль";
             }
         }
 
-        private bool CanSignIn(object parameter)
+        private bool CanSignIn(object obj)
         {
-            return !string.IsNullOrWhiteSpace(loginmodel.Login) && !string.IsNullOrWhiteSpace(loginmodel.Password);
+            bool validData;
+            if (string.IsNullOrWhiteSpace(Login) || Login.Length < 3 ||
+                Password == null || Password.Length < 3)
+                validData = false;
+            else
+                validData = true;
+            return validData;
         }
     }
 }

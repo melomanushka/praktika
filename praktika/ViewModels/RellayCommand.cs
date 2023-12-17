@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace praktika.ViewModels
 {
-    internal class RellayCommand
+    internal class RelayCommand : ICommand
     {
         private readonly Action<object> execute;
         private readonly Predicate<object> canExecute;

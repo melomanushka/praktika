@@ -42,7 +42,9 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            
+
+
+            <!--PASSWORD-->
             <TextBlock Text="Password" Foreground="#f8f4eb" Margin="15,0" FontFamily="Comic Sans MS"></TextBlock>
             <TextBox Margin="5" Height="20" Width="350" Opacity="0.8" Background="Transparent" Foreground="#f8f4eb">
                 <TextBox.Resources>
@@ -51,6 +53,8 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
+
+            <!--PASSWORD-->
             <TextBlock Text="Repeat Password" Foreground="#f8f4eb" Margin="15,0" FontFamily="Comic Sans MS"></TextBlock>
             <TextBox Margin="5" Height="20" Width="350" Opacity="0.8" Background="Transparent" Foreground="#f8f4eb">
                 <TextBox.Resources>
@@ -59,7 +63,7 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <!--PASSWORD-->
+
             <Button Content="Enter" Width="200" Height="26" 
                     Margin="8,0" Background="Transparent" FontFamily="Comic Sans MS"
                     Foreground="#f8f4eb" FontSize="18">
@@ -74,6 +78,20 @@
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <TranslateTransform />
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Y" To="-5" Duration="0:0:0.1" AutoReverse="True" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
                     </Style>
                 </Button.Style>
             </Button>
@@ -93,6 +111,20 @@
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <TranslateTransform />
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.PreviewMouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.Y" To="-5" Duration="0:0:0.1" AutoReverse="True" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
                     </Style>
                 </Button.Style>
             </Button>

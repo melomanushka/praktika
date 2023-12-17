@@ -102,8 +102,8 @@ namespace praktika.ViewModels
         }
         private void LoadCurrentUser()
         {
-            LoginRegistrViewModel loginRegistrViewModel = LoginRegistrViewModel.loginRegistrViewModel;
-            CurrentUser = loginRegistrViewModel.CurrentUser;
+            //LoginRegistrViewModel loginRegistrViewModel = LoginRegistrViewModel.loginRegistrViewModel;
+           // CurrentUser = loginRegistrViewModel.CurrentUser;
         }
 
         private int accessLevel;
