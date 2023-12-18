@@ -1,5 +1,4 @@
-﻿using praktika.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +15,5 @@ namespace praktika.Model
         public string LastName { get; set; }
         public string FirstPasswordForSignUp { get; set; }
         public string SecondPasswordForSignUp { get; set; }
-        public DataBaseModel DataBaseModel { get; set; }
     }
 }

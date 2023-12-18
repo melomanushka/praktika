@@ -1,0 +1,51 @@
+﻿<Page x:Class="praktika.View.Settings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:praktika.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="625" d:DesignWidth="900"
+      Title="Settings">
+
+    <StackPanel Orientation="Horizontal">
+        <StackPanel Width="750">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Font style" FontSize="20" Margin="10,10,0,0" Style="{DynamicResource everytxbl}"/>
+                <ComboBox Grid.Column="1" Width="360" Height="40" 
+                          Background="#FFC68C8C" Foreground="#f8f4eb"/>
+
+                <TextBlock Grid.Row="1" Text="Font size" FontSize="20" Margin="10,10,0,0" 
+                           Style="{DynamicResource everytxbl}"/>
+                <ComboBox Grid.Column="1" Grid.Row="1" Width="360" Height="40" 
+                          Background="#FFC68C8C" Foreground="#f8f4eb"/>
+
+                <TextBlock Grid.Row="2" Text="Font size" FontSize="20" Margin="10,10,0,0" 
+                           Style="{DynamicResource everytxbl}"/>
+                <CheckBox Grid.Column="1" Grid.Row="2" 
+                          IsChecked="True" Content="Visible"
+                          Foreground="#f8f4eb" VerticalAlignment="Center"
+                          FontSize="20" Background="#FFC68C8C"/>
+
+            </Grid>
+        </StackPanel>
+        <StackPanel Width="150">
+            <!--Click="Theme_Change_Click"-->
+            <Button Width="63" Height="60" 
+                    Click="Theme_Change_Click"
+                    HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Margin="0,10,10,0" Style="{DynamicResource sunmoon}">
+            </Button>
+        </StackPanel>
+
+    </StackPanel>
+</Page>

@@ -1,17 +1,15 @@
-﻿using GalaSoft.MvvmLight.Command;
-using praktika.Views;
+﻿using praktika.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace praktika.ViewModels
+namespace praktika.ViewModel
 {
-    internal class HomeViewModel : INotifyPropertyChanged
+    internal class MainWindowViewModel : INotifyPropertyChanged
     {
         #region OnPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -36,7 +34,7 @@ namespace praktika.ViewModels
                 isPage1Selected = value;
                 OnPropertyChanged(nameof(IsPage1Selected));
                 if (value)
-                    CurrentPage = new HomePage();
+                    CurrentPage = new Home();
             }
         }
 
@@ -48,7 +46,7 @@ namespace praktika.ViewModels
                 isPage2Selected = value;
                 OnPropertyChanged(nameof(IsPage2Selected));
                 if (value)
-                    CurrentPage = new UserListPage();
+                    CurrentPage = new Userlist();
             }
         }
 
@@ -73,14 +71,12 @@ namespace praktika.ViewModels
                 OnPropertyChanged(nameof(CurrentPage));
             }
         }
-
-        public HomeViewModel()
+        public MainWindowViewModel()
         {
             ChangePageCommand = new RelayCommand(ChangePage);
-            CurrentPage = new HomePage();
+            CurrentPage = new Home();
             IsPage1Selected = true;
         }
-
         private void ChangePage(object obj)
         {
             throw new NotImplementedException();

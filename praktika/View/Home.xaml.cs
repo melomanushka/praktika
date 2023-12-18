@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace praktika
+namespace praktika.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Home.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Home : Page
     {
-        public MainWindow()
+        public Home()
         {
             InitializeComponent();
         }

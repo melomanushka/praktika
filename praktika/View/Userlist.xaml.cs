@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace praktika.Views
+namespace praktika.View
 {
     /// <summary>
-    /// Логика взаимодействия для Settings.xaml
+    /// Логика взаимодействия для Userlist.xaml
     /// </summary>
-    public partial class Settings : Page
+    public partial class Userlist : Page
     {
-        public Settings()
+        public Userlist()
         {
             InitializeComponent();
         }

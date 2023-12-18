@@ -1,5 +1,4 @@
-﻿using praktika.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,29 +10,35 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace praktika.Views
+namespace praktika.View
 {
     /// <summary>
-    /// Логика взаимодействия для HomeView.xaml
+    /// Логика взаимодействия для LoginView.xaml
     /// </summary>
-    public partial class HomeView : Window
+    public partial class LoginView : Window
     {
-        public HomeView()
+        public static LoginView loginView;
+        public LoginView()
         {
             InitializeComponent();
-            DataContext = new HomeViewModel();  
+            loginView = this;
+            mainFrame.Content = new LoginPage();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+
         private void btnclose_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+        private void btnmin_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

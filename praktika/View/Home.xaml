@@ -1,16 +1,22 @@
-﻿<Page x:Class="praktika.Views.HomePage"
+﻿<Page x:Class="praktika.View.Home"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:praktika.Views"
+      xmlns:local="clr-namespace:praktika.View"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="900"
-      Title="HomePage">
+      Title="Home">
+
     <StackPanel>
-        <TextBlock Text="Discover" Foreground="#f8f4eb"
+        <StackPanel Orientation="Horizontal" >
+            <TextBlock Text="Hello," Style="{DynamicResource everytxbl}"
                        FontSize="31" HorizontalAlignment="Left"
                        Margin="0,0,0,20"/>
+            <TextBlock Text="{Binding FirstName}" Style="{DynamicResource everytxbl}"
+                       FontSize="31" HorizontalAlignment="Left"
+                       Margin="0,0,0,20"/>
+        </StackPanel>
 
         <StackPanel Orientation="Horizontal">
             <Border Width="500" Height="300">
@@ -27,14 +33,16 @@
                 </Border.Clip>
                 <Grid>
                     <StackPanel>
-                        <TextBlock Text="World Leader in global&#x0a;finance"
-                                   Foreground="White" FontSize="28" Margin="20,10,10,0"/>
+                        <TextBlock Text="You've entered a project called &#x0a;Hikes"
+                                   Style="{DynamicResource everytxbl}" 
+                                   FontSize="28" Margin="20,10,10,0"/>
 
                         <TextBlock Text="Get started today!"
-                                   Foreground="White" FontSize="18" Margin="20,10,10,0"/>
+                                   Style="{DynamicResource everytxbl}" 
+                                   FontSize="18" Margin="20,10,10,0"/>
                     </StackPanel>
-                    <Image Width="250" Height="250" Source="/image/8.png" HorizontalAlignment="Left" 
-                           Margin="193,24,0,-74" RenderTransformOrigin="0.5,0.5">
+                    <Image Width="250" Height="250" Source="/Resources/8.png" HorizontalAlignment="Left" 
+                           Margin="310,82,0,-32" RenderTransformOrigin="0.5,0.5">
                         <Image.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -65,7 +73,7 @@
                 </Style>
             </StackPanel.Resources>
 
-            <TextBlock Text="Most Watched" Foreground="#f8f4eb"
+            <TextBlock Text="Most Watched" Style="{DynamicResource everytxbl}"
                        FontSize="22" HorizontalAlignment="Left"
                        Margin="0,0,0,10"/>
 

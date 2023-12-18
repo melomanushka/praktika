@@ -1,4 +1,5 @@
-﻿using System;
+﻿using praktika.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,21 +14,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace praktika.Views
+namespace praktika.View
 {
     /// <summary>
-    /// Логика взаимодействия для Registration_Page.xaml
+    /// Логика взаимодействия для RegPage.xaml
     /// </summary>
-    public partial class Registration_Page : Page
+    public partial class RegPage : Page
     {
-        public Registration_Page()
+        public static RegPage regPage;
+        private readonly LoginViewModel viewModel;
+        public RegPage()
         {
             InitializeComponent();
+            regPage = this;
+            viewModel = new LoginViewModel();
+            DataContext = viewModel;
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Login_Page());
+            NavigationService.Navigate(new LoginPage());
         }
     }
 }
